@@ -46,7 +46,7 @@ python scripts/encode-demo.py
 - `PYTHON`：启动本地服务的 Python 可执行文件。
 - `FFMPEG_BINARY`：编码脚本使用的 FFmpeg 路径。
 
-录制脚本自动启动并停止自己的本地服务。运行 `node scripts/record-demo.cjs --inspect` 可只生成界面检查截图，不录制视频。
+录制脚本自动启动并停止自己的本地服务。运行 `node scripts/record-demo.cjs --inspect` 可检查 1440、1024、801、800 和 390 px 宽度的布局，验证手机端导出、视图切换、清空、键盘标签操作、拖放与文件选择导入及无外部请求，并将截图与检查结果保存在 `private/demo/`，不录制视频。
 
 ## 文件
 

@@ -130,3 +130,7 @@ src/cleancv/static/       # 无第三方资源的网页
 ## License
 
 AGPL-3.0-only，见 [LICENSE](../LICENSE)。PDF 处理依赖 [PyMuPDF](https://github.com/pymupdf/PyMuPDF)。本项目按原样提供，不附带担保。
+
+## 手机端操作
+
+在“编辑与核查 / 文档预览”之间切换。文档默认处于浏览模式，便于上下滚动；需要补框时先开启“框选区域”，框选结束后可以关闭。导出或载入简历后会切换到预览。

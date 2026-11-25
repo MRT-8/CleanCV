@@ -1,30 +1,222 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CleanCV · 本地简历脱敏</title>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>CleanCV · 本地简历脱敏</title>
 <style>
-:root{--ink:#173831;--muted:#6b7b75;--green:#246b59;--bg:#f2f5f2;--line:#dce5de;--soft:#eaf3ed}*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}header{height:76px;padding:0 36px;border-bottom:1px solid var(--line);background:#fff;display:flex;justify-content:space-between;align-items:center}.brand{font-size:25px;font-weight:750;letter-spacing:-1px;display:flex;align-items:center;gap:11px}.brand svg{width:33px;height:38px}.brand small{display:block;font-size:10px;letter-spacing:1.5px;font-weight:600;color:var(--muted)}.badge{font-size:13px;background:var(--soft);color:var(--green);padding:7px 13px;border-radius:30px}main{max-width:1450px;margin:24px auto;padding:0 24px;display:grid;grid-template-columns:310px minmax(0,1fr);gap:24px}aside{align-self:start;position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto;scrollbar-width:thin}.card{background:white;border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:14px}h1{font-size:21px;line-height:1.4;margin:0 0 8px}h2{font-size:15px;margin:0 0 8px}p{margin:7px 0;color:var(--muted);font-size:13px;line-height:1.65}.step{color:var(--green);font-size:10px;letter-spacing:1.3px;font-weight:750;margin-bottom:5px}button,.pick{font:inherit;font-size:14px;font-weight:550;cursor:pointer;border:1px solid var(--line);border-radius:7px;padding:9px 12px;background:#fff;color:var(--ink);display:inline-block;transition:background .15s,box-shadow .15s}button:hover,.pick:hover{box-shadow:0 2px 7px #143a2110}button:focus-visible,.pick:focus-visible,textarea:focus-visible{outline:3px solid #a7d2bc;outline-offset:2px}button.primary,.pick{background:var(--green);color:white;border-color:var(--green);width:100%;text-align:center}.sample{width:100%;margin-top:7px;background:#f9fbf9;color:var(--green)}button:disabled{opacity:.4;cursor:not-allowed}input[type=file]{display:none}textarea{width:100%;min-height:69px;border:1px solid var(--line);border-radius:7px;padding:9px;font-family:inherit;font-size:13px;line-height:1.5;resize:vertical}label.check{display:flex;gap:8px;align-items:flex-start;font-size:13px;margin:11px 0}label.check input{margin-top:5px;accent-color:var(--green)}.small{font-size:11px}.quiet{background:transparent;border:0;padding:4px 0;color:var(--muted);font-size:12px}#warnings{white-space:pre-wrap;font-size:12px;color:#896226}#status{overflow-wrap:anywhere;white-space:pre-wrap;font-size:13px;padding-top:7px}#counts{color:var(--green);font-size:12px;margin-top:8px}.workspace{min-width:0;border:1px solid var(--line);border-radius:12px;background:#e9eeea;overflow:hidden;align-self:start}.toolbar{height:48px;background:#fbfcfb;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:0 20px;font-size:13px}.toolbar strong{font-weight:600}.toolbar span{font-size:12px;color:var(--muted)}#pages{padding:20px 24px 24px}.empty{min-height:690px;display:grid;place-content:center;text-align:center;padding:35px}.empty strong{font-size:25px;letter-spacing:-.6px}.empty p{max-width:380px}.empty svg{width:112px;height:140px;margin:0 auto 25px}.page{margin:0 auto 22px;max-width:640px}.pagehead{font-size:11px;color:var(--muted);margin:0 0 8px}.sheet{position:relative;background:white;box-shadow:0 5px 24px #183a2514;line-height:0;cursor:crosshair;touch-action:none;user-select:none}.sheet img{display:block;width:100%;height:auto;pointer-events:none}.region{position:absolute;border:1.5px solid #b54a42;background:#e7716430;pointer-events:none;line-height:1.2}.region.manual{border-color:#236459;background:#4a9b8c30}.region button{position:absolute;right:0;top:0;font:11px/1 system-ui;color:white;background:#a2453e;border:0;border-radius:0;padding:3px 5px;pointer-events:auto}.region span{position:absolute;left:0;top:-15px;white-space:nowrap;font:10px/1.2 system-ui;color:#823c35;background:#fff9;padding:1px 3px}.drag{border:2px dashed var(--green);background:#2364591a}footer{font-size:10px;color:var(--muted);padding:4px 8px 18px;line-height:1.7}a{color:var(--green)}@media(max-width:850px){main{grid-template-columns:1fr;padding:0 12px;margin:16px auto}aside{position:static;max-height:none;overflow:visible}.card{padding:18px}.empty{min-height:300px}header{padding:0 18px;height:70px}.badge{max-width:145px;text-align:center;font-size:11px}.toolbar span{display:none}#pages{padding:12px}.brand small{font-size:9px}}
-</style></head><body>
-<header><div class="brand"><svg viewBox="0 0 36 42" fill="none" aria-hidden="true"><path d="M18 2 33 8v12c0 10-15 20-15 20S3 30 3 20V8L18 2Z" fill="#246b59"/><path d="m11 21 5 5 10-12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><div>CleanCV<small>LOCAL RESUME ANONYMIZER</small></div></div><span class="badge">本机处理 · 无外部 API</span></header>
-<main><aside><div class="card"><div class="step">01 / 打开</div><h1>在本机清理简历</h1><p>上传到 AI 前，在本机删除简历里的姓名、联系方式、政治身份和照片。</p><label class="pick" for="file">选择 PDF 简历</label><input id="file" type="file" accept="application/pdf"><button id="demo" class="sample">载入虚构示例</button><p id="filename" class="small">PDF · 最大 25 MB · 最多 30 页</p></div>
-<div class="card"><div class="step">02 / 核查与补充</div><h2>拖动框选要删除的区域</h2><p>红框是自动候选；点击框内 × 可以撤销。姓名和照片识别可能遗漏，请检查每一页。</p><textarea id="terms" placeholder="额外移除的内容，每行一项&#10;例如姓名、微信号、个人主页"></textarea><button id="detect" disabled>重新识别额外内容</button><div id="counts"></div><p id="warnings"></p></div>
-<div class="card"><div class="step">03 / 导出</div><label class="check"><input id="reviewed" type="checkbox"><span>我已逐页检查，并补充了遗漏区域。</span></label><label class="check"><input id="ocr" type="checkbox"><span>添加可复制文字（可选本地 OCR，需要语言数据）</span></label><button id="export" class="primary" disabled>生成脱敏 PDF</button><p>默认生成图片型 PDF，保留版式并移除原始文字层、链接、附件和元数据。AI 工具需要支持 PDF 图像或 OCR。</p><div id="status" role="status"></div><button id="clear" class="quiet">清空当前文档</button></div>
-<footer>CleanCV · AGPL-3.0-only · 无担保。<br>输入仅保留在进程内存。学校、论文和项目链接仍可能关联身份，可用额外词或框选继续删除。</footer></aside>
-<section class="workspace"><div class="toolbar"><strong id="viewtitle">文档预览</strong><span>拖动添加区域 · 点击 × 撤销</span><button id="toggleview" class="quiet" hidden>预览脱敏结果</button></div><div id="pages"><div class="empty"><svg viewBox="0 0 112 140" fill="none" aria-hidden="true"><rect x="15" y="5" width="82" height="124" rx="7" fill="white" stroke="#c5d4ca"/><rect x="29" y="24" width="38" height="7" rx="3" fill="#c7d8cd"/><rect x="29" y="43" width="54" height="5" rx="2" fill="#e3ebe6"/><rect x="29" y="57" width="54" height="5" rx="2" fill="#e3ebe6"/><rect x="29" y="71" width="43" height="5" rx="2" fill="#e3ebe6"/><circle cx="82" cy="109" r="21" fill="#246b59"/><path d="m73 109 6 6 12-14" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>只留下经历与能力。</strong><p>打开简历后，自动标出候选信息。你可以继续框选、撤销，再下载脱敏后的 PDF。</p></div></div></section></main>
+:root{--ink:#20382f;--muted:#65756c;--green:#285e4b;--green-dark:#173e32;--paper:#f8f9f5;--white:#fff;--line:#dce3d9;--soft:#edf2e9;--accent:#e2bf65;--mat:#214a3b;--red:#aa4840;--radius:8px}
+*{box-sizing:border-box}[hidden]{display:none!important}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC","Microsoft YaHei",sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.45}button,textarea,input{accent-color:var(--green)}button:focus-visible,textarea:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid #b28b2d;outline-offset:3px}button{transition:background .15s,border-color .15s,color .15s}button svg,.icon{width:19px;height:19px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}a{color:inherit}.svg-library{position:absolute;width:0;height:0;overflow:hidden}.topbar{height:76px;border-bottom:1px solid var(--line);background:#fcfdf9}.topbar-inner{max-width:1536px;height:100%;margin:auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none}.brand-mark{width:35px;height:40px}.wordmark{font:600 29px/1 Georgia,"Times New Roman",serif;letter-spacing:-1.2px}.brand-divider{height:22px;width:1px;background:var(--line);margin:0 6px}.brand-subtitle{color:var(--muted);font-size:14px}.header-actions{display:flex;align-items:center;gap:20px}.local-status{display:flex;align-items:center;gap:7px;color:var(--green);font-size:14px}.text-button{background:transparent;border:0;color:var(--muted);padding:8px 0;font-size:14px}.text-button:hover:not(:disabled){color:var(--green-dark)}.app{max-width:1536px;margin:0 auto;padding:26px 48px 22px}.intro{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:24px}h1{font-size:30px;font-weight:650;letter-spacing:-1px;line-height:1.35;margin:0 0 7px}.intro p{margin:0;color:var(--muted);font-size:14px}.workflow{display:flex;align-items:center;gap:16px;color:#7a857c;font-size:14px;list-style:none;margin:0;padding:0}.workflow li{display:flex;align-items:center;gap:8px;white-space:nowrap}.workflow li+li:before{content:"";height:1px;width:24px;background:var(--line);margin-right:8px}.step-number{width:26px;height:26px;border:1px solid #d5ddd1;border-radius:50%;display:inline-grid;place-content:center;font:12px ui-monospace,monospace}.workflow li.active{color:var(--green-dark);font-weight:600}.workflow li.active .step-number{background:var(--green);border-color:var(--green);color:white}.workflow li.done .step-number{background:#e4ecdf;color:var(--green);border-color:#e4ecdf}.workbench{display:grid;grid-template-columns:340px minmax(0,1fr);align-items:start;gap:28px}.editor{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);overflow:hidden}.panel-heading{display:flex;align-items:center;justify-content:space-between;padding:17px 22px;background:#f0f3ec;border-bottom:1px solid var(--line)}.panel-heading h2{font-size:16px;margin:0;font-weight:600}.panel-heading>span{font-size:12px;letter-spacing:1px;color:var(--muted)}.editor-section{padding:19px 22px;border-bottom:1px solid var(--line)}.section-title{display:flex;align-items:center;gap:9px;margin-bottom:13px}.section-title h3{font-size:15px;margin:0;font-weight:600}.section-title .icon{color:var(--green);width:18px;height:18px}.section-title .section-meta{font-size:12px;color:var(--muted);margin-left:auto}.upload-box{width:100%;padding:18px 14px;border:1px dashed #b8cbb6;border-radius:6px;background:#f8faf5;display:flex;align-items:center;gap:13px;text-align:left;color:var(--ink)}.upload-box:hover:not(:disabled),.upload-box.dragover{background:#edf3e7;border-color:var(--green)}.upload-icon{width:39px;height:44px;background:#e6eddf;border:1px solid #d6e0ce;border-radius:6px;display:grid;place-items:center;color:var(--green)}.upload-box strong{font-size:14px;display:block;font-weight:600}.upload-box small{display:block;font-size:12px;color:var(--muted);margin-top:3px}.sample{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;margin-top:10px;background:white;border:0;color:var(--green);padding:4px;font-size:14px}.sample:hover:not(:disabled){text-decoration:underline;text-underline-offset:4px}.sample svg{width:16px;height:16px}#file{display:none}#filename{font-size:12px;color:var(--muted);overflow-wrap:anywhere;margin:9px 0 0}#filename:empty{display:none}.hint{font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 12px}.candidate-summary{display:flex;align-items:baseline;gap:6px;margin-bottom:12px}.candidate-summary strong{font:500 29px/1 Georgia,serif;letter-spacing:-1px}.candidate-summary span{font-size:13px;color:var(--muted)}#counts{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 15px}.count-chip{display:flex;align-items:center;gap:9px;border:1px solid #e2e7df;border-radius:4px;padding:3px 7px;color:#526358;font-size:12px;background:#fafbf8}.count-chip b{font-weight:500;color:var(--green)}.field-label{display:block;font-size:14px;margin:0 0 7px}.field-label span{color:var(--muted);font-size:12px;margin-left:6px}textarea{display:block;width:100%;min-height:65px;border:1px solid #d5dfd1;border-radius:5px;padding:9px 11px;background:#fff;color:var(--ink);font-size:14px;line-height:1.5;resize:vertical}textarea::placeholder{color:#869187}textarea:disabled{background:#fafbf8}.secondary{display:inline-flex;justify-content:center;align-items:center;gap:7px;border:1px solid #d2ddcd;background:white;border-radius:5px;padding:8px 12px;font-size:14px;color:var(--green)}.secondary:hover:not(:disabled){background:var(--soft);border-color:#b4c6ad}#detect{width:100%;margin-top:9px}#warnings{white-space:pre-wrap;color:#856022;font-size:13px;margin:12px 0 0}#warnings:empty{display:none}.export-section{padding:18px 22px 20px;background:#fafbf8}.check{display:flex;align-items:flex-start;gap:9px;font-size:14px;line-height:1.6;cursor:pointer}.check input{width:16px;height:16px;flex-shrink:0;margin:4px 0 0}.export-settings{margin:12px 0 15px;font-size:13px;color:var(--muted)}summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:7px;font-size:13px;width:fit-content}summary::-webkit-details-marker{display:none}summary .icon{width:15px;height:15px;transition:transform .15s}details[open] summary .icon{transform:rotate(90deg)}details .check{font-size:13px;margin-top:10px}details p{font-size:12px;margin:6px 0 0 25px}.primary{width:100%;display:flex;align-items:center;justify-content:center;gap:9px;background:var(--green);color:white;border:1px solid var(--green);border-radius:5px;min-height:44px;font-size:14px;font-weight:550}.primary:hover:not(:disabled){background:var(--green-dark)}.export-note{font-size:12px;text-align:center;color:var(--muted);margin:9px 0 0}.workspace{min-width:0}.toolbar{min-height:43px;flex-wrap:wrap;padding-bottom:12px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.toolbar-title{display:flex;align-items:center;gap:10px}.toolbar strong{font-size:15px;font-weight:600}.page-count{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:1px 6px;border-radius:4px;white-space:nowrap}.view-controls{display:flex;align-items:center;gap:8px}.view-controls button{font-size:13px;min-height:30px;padding:4px 9px}.view-controls button[aria-pressed=true]{background:#e5ecdf;border-color:#a7b99e;color:var(--green-dark)}.board{position:relative;background:var(--mat);border:1px solid #214638;border-radius:var(--radius);padding:25px 26px 21px;overflow:hidden}.board:before{content:"";position:absolute;left:27px;right:27px;top:9px;height:5px;background:repeating-linear-gradient(90deg,#ffffff23 0 1px,transparent 1px 12px);pointer-events:none}.board:after{content:"";position:absolute;left:9px;top:26px;bottom:24px;width:5px;background:repeating-linear-gradient(0deg,#ffffff23 0 1px,transparent 1px 12px);pointer-events:none}.mat-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px;gap:12px}.mat-label{font-size:11px;letter-spacing:1.5px;color:#d0dfd2;font-weight:500}.mat-tag{font:12px/1.3 ui-monospace,monospace;background:var(--accent);color:#403719;border-radius:3px;padding:4px 8px}.canvas{max-height:calc(100dvh - 322px);min-height:480px;overflow:auto;scrollbar-width:thin;scrollbar-color:#77937d transparent;scroll-padding:24px}#pages{padding:0 14px 15px}.page{max-width:590px;margin:0 auto 24px}.page:last-child{margin-bottom:0}.pagehead{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#d8e5d9;margin:0 0 9px}.sheet{position:relative;line-height:0;background:white;box-shadow:0 8px 30px #09251950;user-select:none;cursor:crosshair;touch-action:none}.sheet img{display:block;width:100%;height:auto;pointer-events:none}.sheet.browse{cursor:default;touch-action:pan-y}.region{position:absolute;border:1.5px solid #b44a43;background:#e5776030;pointer-events:none;line-height:1.2}.region.manual{border-color:#286451;background:#5d9f7830}.region span{position:absolute;left:-1px;bottom:100%;white-space:nowrap;font:10px/1.3 system-ui;color:#8c3e37;background:#fffdf3e8;padding:1px 3px;border-radius:2px 2px 0 0}.region button{position:absolute;right:-1px;top:-1px;font:13px/1 system-ui;color:white;background:#a2453e;border:0;border-radius:0;padding:3px 5px;pointer-events:auto}.region button:hover{background:#752b27}.region.manual button{background:var(--green)}.region.manual span{color:var(--green)}.drag{border:2px dashed var(--accent);background:#e2bf6525}.board-footer{display:flex;justify-content:space-between;gap:16px;color:#cedbd0;font-size:12px;padding-top:13px;border-top:1px solid #ffffff1a}.legend{display:flex;align-items:center;gap:7px}.legend i{width:9px;height:9px;border:1px solid #ee998c;background:#d3746740;display:inline-block;margin-right:2px}.legend i.manual-key{border-color:#bbd5aa;background:#b2d39f30;margin-left:10px}.result-key{color:#e7d497}.empty{max-width:590px;min-height:480px;margin:0 auto;position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;background:#fcfdf9;padding:32px;text-align:center;box-shadow:0 8px 30px #09251950}.empty:before{content:"";position:absolute;inset:16px;border:1px solid #e7eadf;pointer-events:none}.empty-art{width:200px;height:148px;position:relative;margin-bottom:27px}.paper-back{position:absolute;background:#e9eedf;width:104px;height:136px;border:1px solid #d4dfca;left:25px;top:6px;transform:rotate(-9deg)}.paper-front{position:absolute;background:white;width:106px;height:140px;border:1px solid #c9d6c0;left:67px;top:0;box-shadow:0 6px 12px #20382f0a;padding:21px 15px;text-align:left}.paper-front b{display:block;width:38px;height:7px;background:#a9b99d;margin-bottom:14px}.paper-front i{display:block;width:100%;height:4px;background:#e0e7d8;margin:8px 0}.paper-front i:nth-of-type(2){width:75%}.paper-front i:nth-of-type(3){margin-top:17px}.paper-front i:last-of-type{width:60%}.paper-seal{position:absolute;bottom:0;right:8px;width:45px;height:45px;border-radius:50%;background:var(--green);display:grid;place-items:center;box-shadow:0 0 0 5px #fcfdf9}.paper-seal svg{width:24px;height:24px;color:#f1f4dc}.empty h2{font-size:25px;letter-spacing:-.7px;font-weight:550;margin:0 0 13px}.empty p{font-size:14px;color:var(--muted);max-width:300px;margin:0;line-height:1.9}.empty-note{display:flex;align-items:center;gap:6px;margin-top:25px;color:var(--green);font-size:12px}.empty-note .icon{width:14px;height:14px}.status-line{margin-left:368px;display:flex;gap:8px;align-items:flex-start;margin-top:13px;color:var(--muted);font-size:13px;min-height:22px}.status-line .icon{width:16px;height:16px;margin-top:2px;flex-shrink:0}#status{overflow-wrap:anywhere}.app-footer{display:flex;justify-content:space-between;gap:24px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.app-footer p{margin:0}.app-footer a{text-decoration:none}.app-footer a:hover{text-decoration:underline}.mobile-tabs{display:none}body[data-state=ready] .upload-box{padding:11px 12px}body[data-state=ready] .upload-icon{height:34px;width:32px}
+@media(min-width:1600px){.canvas{max-height:calc(100dvh - 322px)}.page{max-width:660px}}
+@media(max-width:1150px){.topbar-inner{padding:0 28px}.app{padding:24px 28px}.workbench{grid-template-columns:310px minmax(0,1fr);gap:22px}.editor-section,.export-section{padding:18px}.panel-heading{padding:15px 18px}.board{padding:24px 18px 18px}.workflow{gap:10px}.workflow li+li:before{width:14px;margin-right:2px}.status-line{margin-left:332px}.brand-subtitle{display:none}.brand-divider{display:none}#pages{padding:0 7px 12px}.empty{padding:26px 20px}.empty h2{font-size:22px}.toolbar-title{gap:7px}}
+@media(max-width:800px){.topbar{height:66px}.topbar-inner{padding:0 20px}.wordmark{font-size:26px}.brand-mark{width:28px;height:33px}.header-actions{gap:14px}.local-status{font-size:12px}.header-actions .text-button{font-size:12px}.app{padding:22px 18px}.intro{align-items:flex-start;gap:15px;margin-bottom:19px}h1{font-size:25px}.intro p{font-size:13px;max-width:290px}.workflow{display:none}.mobile-tabs{display:flex;padding:4px;background:#e8eee2;border-radius:7px;margin-bottom:18px;gap:4px}.mobile-tabs button{flex:1;border:0;border-radius:4px;background:transparent;min-height:40px;color:var(--muted);font-size:14px}.mobile-tabs button[aria-selected=true]{background:white;color:var(--green-dark);box-shadow:0 1px 5px #243d3010}.workbench{display:block}body[data-mobile=editor] .workspace{display:none}body[data-mobile=preview] .editor{display:none}.editor-section,.export-section{padding:20px}.panel-heading{padding:16px 20px}.toolbar{align-items:center;height:auto;min-height:38px;margin-bottom:10px;flex-wrap:wrap}.canvas{max-height:none;min-height:430px;overflow:visible}.board{padding:22px 15px 16px}.board:after{left:5px}.board:before{left:18px;right:18px}.pagehead{font-size:11px}.board-footer{font-size:11px}.board-footer .footer-help{display:none}.mat-heading{margin-bottom:14px}#pages{padding:0 3px 15px}.empty{min-height:430px;padding:35px 24px}.empty h2{font-size:23px}.page-count{font-size:11px}.app-footer{display:block;line-height:1.8}.app-footer p+p{margin-top:8px}.status-line{font-size:12px;margin-left:0}.region button{padding:3px 6px;font-size:14px}.region span{font-size:9px}.primary,.secondary{min-height:44px}.view-controls button{min-height:36px}.view-controls{flex-wrap:wrap}.sample{min-height:40px}.export-settings summary{min-height:28px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body data-mobile="editor" data-state="empty">
+<svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H5v18h14V8zM14 3v5h5M8 12h8M8 16h5"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></symbol>
+<symbol id="i-scan" viewBox="0 0 24 24"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5M7 9h10M7 13h10M7 17h5"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5"/></symbol>
+<symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"/></symbol>
+<symbol id="i-box" viewBox="0 0 24 24"><path d="M3 8V3h5M16 3h5v5M21 16v5h-5M8 21H3v-5M8 8h8v8H8z"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+</defs></svg>
+<header class="topbar"><div class="topbar-inner">
+<div class="brand"><svg class="brand-mark" viewBox="0 0 36 42" fill="none" aria-hidden="true"><path d="M18 2 33 8v12c0 10-15 20-15 20S3 30 3 20V8L18 2Z" fill="#285e4b"/><path d="m11 21 5 5 10-12" stroke="#fffef6" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="wordmark">CleanCV</span><span class="brand-divider"></span><span class="brand-subtitle">让分享更安心</span></div>
+<div class="header-actions"><span class="local-status"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>仅在本机处理</span><button id="clear" class="text-button" disabled>清空文档</button></div>
+</div></header>
+<main class="app">
+<div class="intro"><div><h1>简历脱敏工作台</h1><p>保留你的经历与能力，把个人信息留在自己手里。</p></div>
+<ol class="workflow" aria-label="处理进度"><li id="step-open" class="active" aria-current="step"><span class="step-number">1</span>导入简历</li><li id="step-review"><span class="step-number">2</span>核查信息</li><li id="step-export"><span class="step-number">3</span>导出分享</li></ol></div>
+<div class="mobile-tabs" role="tablist" aria-label="工作区"><button id="tab-editor" role="tab" aria-selected="true" aria-controls="editor">编辑与核查</button><button id="tab-preview" role="tab" aria-selected="false" aria-controls="workspace" tabindex="-1">文档预览</button></div>
+<div class="workbench">
+<aside id="editor" class="editor" aria-label="脱敏设置">
+<div class="panel-heading"><h2>文档设置</h2><span>WORKSPACE</span></div>
+<section class="editor-section"><div class="section-title"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><h3>导入简历</h3><span class="section-meta">PDF</span></div>
+<button id="pick" class="upload-box"><span class="upload-icon"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg></span><span><strong id="pick-title">点击选择，或拖入简历</strong><small>最大 25 MB · 最多 30 页</small></span></button><input id="file" type="file" accept="application/pdf,.pdf" aria-label="选择 PDF 简历"><p id="filename"></p>
+<button id="demo" class="sample"><svg aria-hidden="true"><use href="#i-spark"/></svg>载入虚构示例</button></section>
+<section class="editor-section"><div class="section-title"><svg class="icon" aria-hidden="true"><use href="#i-scan"/></svg><h3>核查与补充</h3><span class="section-meta" id="review-state">等待导入</span></div>
+<div id="candidate-summary" class="candidate-summary" hidden><strong id="total-count">0</strong><span>处待移除区域</span></div><p id="review-hint" class="hint">自动标记姓名、联系方式、政治身份和照片。你可以在预览中撤销或补充。</p><div id="counts"></div>
+<label class="field-label" for="terms">额外移除的内容<span>每行一项</span></label><textarea id="terms" rows="2" placeholder="例如：微信号、个人主页、所在城市" disabled></textarea><button id="detect" class="secondary" disabled><svg aria-hidden="true"><use href="#i-refresh"/></svg>重新识别额外内容</button><p id="warnings" role="note"></p></section>
+<section class="export-section"><label class="check"><input id="reviewed" type="checkbox" disabled><span>我已逐页核查，并补充遗漏区域</span></label>
+<details class="export-settings"><summary><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg>导出选项</summary><label class="check"><input id="ocr" type="checkbox" disabled><span>添加可复制文字（本地 OCR）</span></label><p>需预先安装 OCR 语言数据。默认生成图片型 PDF。</p></details>
+<button id="export" class="primary" disabled><svg aria-hidden="true"><use href="#i-download"/></svg><span id="export-label">生成脱敏 PDF</span></button><p class="export-note">生成新文件 · 保留原始简历</p></section>
+</aside>
+<section id="workspace" class="workspace" aria-label="文档预览">
+<div class="toolbar"><div class="toolbar-title"><strong id="viewtitle">文档预览</strong><span id="page-count" class="page-count">尚未导入</span></div><div class="view-controls"><button id="draw" class="secondary" aria-pressed="true" disabled><svg aria-hidden="true"><use href="#i-box"/></svg>框选区域</button><button id="toggleview" class="secondary" hidden>预览脱敏结果</button></div></div>
+<div class="board"><div class="mat-heading"><span id="mat-label" class="mat-label">DOCUMENT PREVIEW</span><span id="mat-tag" class="mat-tag">PDF</span></div><div id="canvas" class="canvas"><div id="pages"></div></div><div class="board-footer"><span id="legend" class="legend"><i></i>自动候选<i class="manual-key"></i>手动补充</span><span id="board-help" class="footer-help">框选要移除的区域 · 点击 × 保留</span></div></div>
+</section></div>
+<div class="status-line"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span id="status" role="status" aria-live="polite">选择一份简历，或用虚构示例体验完整流程。</span></div>
+<footer class="app-footer"><p>输入仅保留在进程内存。学校、论文和项目链接也可能关联身份，请按需补充遮盖。</p><p>CleanCV · AGPL-3.0-only</p></footer>
+</main>
+<template id="empty-template"><div class="empty"><div class="empty-art" aria-hidden="true"><div class="paper-back"></div><div class="paper-front"><b></b><i></i><i></i><i></i><i></i><i></i></div><div class="paper-seal"><svg class="icon"><use href="#i-check"/></svg></div></div><h2>只分享值得被看见的部分。</h2><p>导入简历，核查个人信息。<br>让下一次对话，专注于你的能力。</p><span class="empty-note"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>文件留在本机，无需账号</span></div></template>
 <script>
-const $=id=>document.getElementById(id);const token=new URLSearchParams(location.hash.slice(1)).get('token')||'';const labels={name:'姓名',email:'邮箱',phone:'电话',politics:'政治身份',photo:'照片候选',image:'图片',extra:'额外词',manual:'手动'};let current=null,regions=[],busy=false,urls=[],dismissed=new Set(),resultReady=false,showingResult=false;
-function status(s){$('status').textContent=s}function controls(on){busy=on;$('file').disabled=on;$('demo').disabled=on;$('toggleview').disabled=on;$('reviewed').disabled=on;$('ocr').disabled=on;$('clear').disabled=on;$('detect').disabled=on||!current;$('export').disabled=on||!current||!$('reviewed').checked;}
-async function request(path,body,raw=false){const opts={headers:{'X-CleanCV-Token':token}};if(body!==undefined){opts.method='POST';opts.headers['Content-Type']=raw?'application/pdf':'application/json';opts.body=raw?body:JSON.stringify(body)}const r=await fetch(path,opts);if(!r.ok){let e=await r.json().catch(()=>({error:'请求失败'}));throw Error(e.error)}return r}
-function count(){resultReady=false;$('toggleview').hidden=true;const n={};regions.forEach(r=>n[r.kind]=(n[r.kind]||0)+1);$('counts').textContent=Object.entries(n).map(([k,v])=>(labels[k]||k)+' '+v).join(' · ');$('reviewed').checked=false;controls(busy)}
-function position(el,r,page){el.style.left=(r[0]/page.width*100)+'%';el.style.top=(r[1]/page.height*100)+'%';el.style.width=((r[2]-r[0])/page.width*100)+'%';el.style.height=((r[3]-r[1])/page.height*100)+'%'}
-function regionKey(r){return r.page+':'+r.kind+':'+r.rect.map(x=>Math.round(x*10)).join(',')}
-function overlays(){document.querySelectorAll('.region:not(.drag)').forEach(e=>e.remove());if(!current)return;regions.forEach((r,index)=>{const page=current.pages[r.page-1],sheet=$('sheet-'+r.page);if(!sheet)return;const el=document.createElement('div');el.className='region '+(r.kind==='manual'?'manual':'');position(el,r.rect,page);const tag=document.createElement('span');tag.textContent=labels[r.kind]||'区域';const button=document.createElement('button');button.textContent='×';button.title='保留此区域';button.onpointerdown=e=>e.stopPropagation();button.onclick=e=>{e.stopPropagation();if(r.kind!=='manual')dismissed.add(regionKey(r));regions.splice(index,1);overlays();count()};el.append(tag,button);sheet.append(el)})}
-function draggable(sheet,page){let start=null,drag=null;function point(e){const b=sheet.getBoundingClientRect();return[Math.max(0,Math.min(page.width,(e.clientX-b.left)/b.width*page.width)),Math.max(0,Math.min(page.height,(e.clientY-b.top)/b.height*page.height))]}function rect(a,b){return[Math.min(a[0],b[0]),Math.min(a[1],b[1]),Math.max(a[0],b[0]),Math.max(a[1],b[1])]}sheet.onpointerdown=e=>{if(busy||e.button!==0)return;start=point(e);drag=document.createElement('div');drag.className='region drag';sheet.append(drag);sheet.setPointerCapture(e.pointerId)};sheet.onpointermove=e=>{if(start)position(drag,rect(start,point(e)),page)};sheet.onpointerup=e=>{if(!start)return;const r=rect(start,point(e));drag.remove();start=null;if(r[2]-r[0]>2&&r[3]-r[1]>2){regions.push({page:page.page,rect:r,kind:'manual',confidence:'manual'});overlays();count()}};sheet.onpointercancel=()=>{if(drag)drag.remove();start=null}}
-async function show(result=false){showingResult=result;urls.forEach(URL.revokeObjectURL);urls=[];$('pages').replaceChildren();for(const p of current.pages){const card=document.createElement('div');card.className='page';const head=document.createElement('div');head.className='pagehead';head.textContent=(result?'已导出结果 · ':'')+'第 '+p.page+' 页'+(!result&&p.scan_like?' · 扫描页，请手动补充':'');const sheet=document.createElement('div');sheet.className='sheet';sheet.id='sheet-'+p.page;const img=document.createElement('img');img.alt='第 '+p.page+' 页简历';sheet.append(img);card.append(head,sheet);$('pages').append(card);const r=await request('/api/'+(result?'result':'page')+'/'+p.page+'.png?id='+current.document_sha256);const u=URL.createObjectURL(await r.blob());urls.push(u);img.src=u;if(!result)draggable(sheet,p);else sheet.style.cursor='default'}if(!result)overlays();$('viewtitle').textContent=result?'脱敏结果预览':'文档预览';$('toggleview').hidden=!resultReady;$('toggleview').textContent=result?'返回原稿编辑':'预览脱敏结果'}
-$('file').onchange=async e=>{const f=e.target.files[0];if(!f)return;controls(true);status('正在本机解析…');try{const r=await request('/api/open',await f.arrayBuffer(),true);current=await r.json();dismissed.clear();$('terms').value='';regions=current.regions;$('filename').textContent=f.name;$('warnings').textContent=current.warnings.join('\n');await show();count();status('识别完成。请逐页检查，并拖动补框。')}catch(e){status(e.message)}finally{controls(false)}};
-$('demo').onclick=async()=>{controls(true);status('正在载入虚构示例…');try{const r=await request('/api/demo',{});current=await r.json();dismissed.clear();$('terms').value='';regions=current.regions;$('file').value='';$('filename').textContent='synthetic-resume.pdf · 全部信息为虚构';$('warnings').textContent=current.warnings.join('\n');await show();count();status('示例已就绪。自动候选仍需人工核查。')}catch(e){status(e.message)}finally{controls(false)}};
-$('detect').onclick=async()=>{controls(true);try{const r=await request('/api/detect',{document_id:current.document_sha256,terms:$('terms').value.split('\n').map(x=>x.trim()).filter(Boolean)});const a=await r.json();regions=[...a.regions.filter(r=>!dismissed.has(regionKey(r))),...regions.filter(r=>r.kind==='manual')];$('warnings').textContent=a.warnings.join('\n');if(showingResult)await show(false);else overlays();count();status('已更新候选区域。')}catch(e){status(e.message)}finally{controls(false)}};
-$('reviewed').onchange=()=>controls(false);
-$('toggleview').onclick=async()=>{controls(true);try{await show(!showingResult)}catch(e){status(e.message)}finally{controls(false)}};
-$('export').onclick=async()=>{controls(true);status('正在重建脱敏 PDF…');try{const r=await request('/api/clean',{document_id:current.document_sha256,regions,reviewed:$('reviewed').checked,ocr:$('ocr').checked});const u=URL.createObjectURL(await r.blob());const a=document.createElement('a');a.href=u;a.download='resume-anonymized.pdf';a.click();setTimeout(()=>URL.revokeObjectURL(u),60000);resultReady=true;await show(true);status('已生成并显示处理结果。核查后再分享下载的 PDF。')}catch(e){status(e.message)}finally{controls(false)}};
-$('clear').onclick=async()=>{if(busy)return;try{await request('/api/clear',{})}catch(e){}current=null;regions=[];dismissed.clear();resultReady=false;showingResult=false;$('toggleview').hidden=true;$('viewtitle').textContent='文档预览';urls.forEach(URL.revokeObjectURL);urls=[];$('pages').replaceChildren();$('file').value='';$('filename').textContent='当前文档已清空';$('terms').value='';$('warnings').textContent='';$('counts').textContent='';$('reviewed').checked=false;status('已释放当前文档的内存。');controls(false)};
+const $ = id => document.getElementById(id);
+const token = new URLSearchParams(location.hash.slice(1)).get('token') || '';
+const labels = {name:'姓名',email:'邮箱',phone:'电话',politics:'政治身份',photo:'照片候选',image:'图片',extra:'额外词',manual:'手动'};
+let current = null, regions = [], busy = false, urls = [], dismissed = new Set(), resultReady = false, showingResult = false;
+let drawing = !matchMedia('(max-width:800px)').matches;
+function status(message) { $('status').textContent = message; }
+function mobileView(view, reveal = false) {
+  document.body.dataset.mobile = view;
+  if (reveal && matchMedia('(max-width:800px)').matches) document.querySelector('.mobile-tabs').scrollIntoView({block:'start',behavior:'instant'});
+  for (const name of ['editor','preview']) {
+    const tab = $('tab-' + name);
+    tab.setAttribute('aria-selected', String(name === view));
+    tab.tabIndex = name === view ? 0 : -1;
+  }
+}
+for (const view of ['editor','preview']) {
+  $('tab-' + view).onclick = () => mobileView(view);
+  $('tab-' + view).onkeydown = event => {
+    if (['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) {
+      event.preventDefault();
+      const next = event.key === 'Home' ? 'editor' : event.key === 'End' ? 'preview' : view === 'editor' ? 'preview' : 'editor';
+      mobileView(next); $('tab-' + next).focus();
+    }
+  };
+}
+function controls(on) {
+  busy = on;
+  for (const id of ['file','pick','demo','toggleview']) $(id).disabled = on;
+  for (const id of ['reviewed','ocr','clear','detect','terms']) $(id).disabled = on || !current;
+  document.querySelectorAll('.region button').forEach(button => button.disabled = on);
+  $('draw').disabled = on || !current || showingResult;
+  $('export').disabled = on || !current || !regions.length || !$('reviewed').checked;
+  document.body.setAttribute('aria-busy', String(on));
+}
+function syncUI() {
+  document.body.dataset.state = current ? 'ready' : 'empty';
+  $('pick-title').textContent = current ? '更换 PDF 简历' : '点击选择，或拖入简历';
+  $('page-count').textContent = current ? current.pages.length + ' 页' : '尚未导入';
+  $('candidate-summary').hidden = !current;
+  $('total-count').textContent = regions.length;
+  $('review-state').textContent = !current ? '等待导入' : showingResult ? '已导出' : '请人工核查';
+  $('review-hint').textContent = current ? '红框是自动候选，点击 × 保留原内容。请逐页检查，并补充遗漏。' : '自动标记姓名、联系方式、政治身份和照片。你可以在预览中撤销或补充。';
+  $('viewtitle').textContent = showingResult ? '脱敏结果预览' : '文档预览';
+  $('mat-label').textContent = showingResult ? 'REDACTED DOCUMENT' : current ? 'REVIEW YOUR DOCUMENT' : 'DOCUMENT PREVIEW';
+  $('mat-tag').textContent = showingResult ? '已导出' : 'PDF';
+  $('toggleview').hidden = !resultReady;
+  $('toggleview').textContent = showingResult ? '返回原稿编辑' : '预览脱敏结果';
+  $('draw').setAttribute('aria-pressed', String(drawing && !showingResult));
+  $('board-help').textContent = showingResult ? '分享前，请再次核查导出内容' : drawing ? '框选要移除的区域 · 点击 × 保留' : '浏览模式 · 开启框选后可添加区域';
+  $('legend').hidden = showingResult;
+  const active = !current ? 0 : resultReady ? 2 : 1;
+  ['open','review','export'].forEach((step, i) => {
+    const el = $('step-' + step); el.className = i === active ? 'active' : i < active ? 'done' : '';
+    if (i === active) el.setAttribute('aria-current', 'step'); else el.removeAttribute('aria-current');
+  });
+}
+async function request(path, body, raw = false) {
+  const options = {headers:{'X-CleanCV-Token':token}};
+  if (body !== undefined) {options.method='POST'; options.headers['Content-Type']=raw?'application/pdf':'application/json'; options.body=raw?body:JSON.stringify(body);}
+  const response = await fetch(path, options);
+  if (!response.ok) {const error=await response.json().catch(()=>({error:'请求失败'})); throw Error(error.error);}
+  return response;
+}
+function count() {
+  resultReady = false;
+  const totals = {};
+  regions.forEach(region => totals[region.kind] = (totals[region.kind] || 0) + 1);
+  $('counts').replaceChildren();
+  for (const [kind, value] of Object.entries(totals)) {
+    const chip = document.createElement('span'); chip.className = 'count-chip'; chip.textContent = labels[kind] || kind;
+    const number = document.createElement('b'); number.textContent = value; chip.append(number); $('counts').append(chip);
+  }
+  $('reviewed').checked = false; syncUI(); controls(busy);
+}
+function position(element, rect, page) {
+  element.style.left = rect[0] / page.width * 100 + '%'; element.style.top = rect[1] / page.height * 100 + '%';
+  element.style.width = (rect[2] - rect[0]) / page.width * 100 + '%'; element.style.height = (rect[3] - rect[1]) / page.height * 100 + '%';
+}
+function regionKey(region) {return region.page + ':' + region.kind + ':' + region.rect.map(x => Math.round(x*10)).join(',');}
+function overlays() {
+  document.querySelectorAll('.region:not(.drag)').forEach(element => element.remove());
+  if (!current || showingResult) return;
+  regions.forEach((region, index) => {
+    const page=current.pages[region.page-1], sheet=$('sheet-'+region.page); if (!sheet) return;
+    const element=document.createElement('div'); element.className='region '+(region.kind==='manual'?'manual':''); position(element,region.rect,page);
+    const tag=document.createElement('span'); tag.textContent=labels[region.kind]||'区域';
+    const button=document.createElement('button'); button.textContent='×'; button.title='保留此区域';
+    button.setAttribute('aria-label', '保留第 '+region.page+' 页的'+(labels[region.kind]||'区域'));
+    button.onpointerdown=event=>event.stopPropagation();
+    button.onclick=event=>{event.stopPropagation(); if (busy) return; if(region.kind!=='manual') dismissed.add(regionKey(region)); regions.splice(index,1); overlays(); count();};
+    element.append(tag,button); sheet.append(element);
+  });
+}
+function draggable(sheet,page) {
+  let start=null,drag=null;
+  function point(event) {const b=sheet.getBoundingClientRect(); return [Math.max(0,Math.min(page.width,(event.clientX-b.left)/b.width*page.width)),Math.max(0,Math.min(page.height,(event.clientY-b.top)/b.height*page.height))];}
+  function rect(a,b) {return [Math.min(a[0],b[0]),Math.min(a[1],b[1]),Math.max(a[0],b[0]),Math.max(a[1],b[1])];}
+  sheet.onpointerdown=event=>{if(busy || !drawing || event.button!==0)return;start=point(event);drag=document.createElement('div');drag.className='region drag';sheet.append(drag);sheet.setPointerCapture(event.pointerId);};
+  sheet.onpointermove=event=>{if(start)position(drag,rect(start,point(event)),page);};
+  sheet.onpointerup=event=>{if(!start)return;const r=rect(start,point(event));drag.remove();start=null;if(r[2]-r[0]>2&&r[3]-r[1]>2){regions.push({page:page.page,rect:r,kind:'manual',confidence:'manual'});overlays();count();}};
+  sheet.onpointercancel=()=>{if(drag)drag.remove();start=null;};
+}
+$('draw').onclick=()=>{drawing=!drawing;document.querySelectorAll('.sheet').forEach(sheet=>sheet.classList.toggle('browse',!drawing));syncUI();};
+function releaseImages() {urls.forEach(URL.revokeObjectURL);urls=[];}
+function empty() {$('pages').replaceChildren($('empty-template').content.cloneNode(true)); syncUI();}
+async function show(result=false) {
+  showingResult=result; releaseImages(); $('pages').replaceChildren();
+  for (const page of current.pages) {
+    const card=document.createElement('div');card.className='page';
+    const head=document.createElement('div');head.className='pagehead';
+    const number=document.createElement('span');number.textContent='第 '+page.page+' 页 / 共 '+current.pages.length+' 页';
+    const note=document.createElement('span');note.textContent=result?'已导出结果':page.scan_like?'扫描页 · 请手动补充':'';head.append(number,note);
+    const sheet=document.createElement('div');sheet.className='sheet'+(result||!drawing?' browse':'');sheet.id='sheet-'+page.page;
+    const img=document.createElement('img');img.alt='第 '+page.page+' 页'+(result?'脱敏结果':'简历');
+    sheet.append(img);card.append(head,sheet);$('pages').append(card);
+    const response=await request('/api/'+(result?'result':'page')+'/'+page.page+'.png?id='+current.document_sha256);
+    const url=URL.createObjectURL(await response.blob());urls.push(url);img.src=url;
+    if(!result)draggable(sheet,page);
+  }
+  if(!result)overlays(); syncUI();
+}
+async function openDocument(file) {
+  if (busy || !file) return;
+  if (file.size > 25*1024*1024) {status('文件超过 25 MB，请选择更小的 PDF。');return;}
+  controls(true);status('正在本机解析简历…');
+  try {
+    const response=await request('/api/open',await file.arrayBuffer(),true);current=await response.json();dismissed.clear();$('terms').value='';regions=current.regions;
+    $('filename').textContent=file.name;$('warnings').textContent=current.warnings.join('\n');await show();count();mobileView('preview', true);
+    status('识别完成。请逐页检查，撤销误报并补充遗漏区域。');
+  } catch(error) {status(error.message);} finally {controls(false);overlays();}
+}
+$('pick').onclick=()=>$('file').click();
+$('file').onchange=event=>openDocument(event.target.files[0]);
+$('pick').ondragover=event=>{event.preventDefault();if(!busy)$('pick').classList.add('dragover');};
+$('pick').ondragleave=()=>$('pick').classList.remove('dragover');
+$('pick').ondrop=event=>{event.preventDefault();$('pick').classList.remove('dragover');openDocument(event.dataTransfer.files[0]);};
+$('demo').onclick=async()=>{
+  controls(true);status('正在载入虚构示例…');
+  try {const response=await request('/api/demo',{});current=await response.json();dismissed.clear();$('terms').value='';regions=current.regions;$('file').value='';$('filename').textContent='synthetic-resume.pdf · 虚构示例';$('warnings').textContent=current.warnings.join('\n');await show();count();mobileView('preview', true);status('示例已就绪。所有资料均为虚构，自动候选仍需人工核查。');}
+  catch(error){status(error.message);}finally{controls(false);overlays();}
+};
+$('detect').onclick=async()=>{
+  controls(true);
+  try{const response=await request('/api/detect',{document_id:current.document_sha256,terms:$('terms').value.split('\n').map(x=>x.trim()).filter(Boolean)});const analysis=await response.json();regions=[...analysis.regions.filter(region=>!dismissed.has(regionKey(region))),...regions.filter(region=>region.kind==='manual')];$('warnings').textContent=analysis.warnings.join('\n');if(showingResult)await show(false);else overlays();count();status('候选区域已更新。请核查新增标记。');}
+  catch(error){status(error.message);}finally{controls(false);overlays();}
+};
+$('reviewed').onchange=()=>controls(busy);
+$('toggleview').onclick=async()=>{controls(true);try{await show(!showingResult);}catch(error){status(error.message);}finally{controls(false);overlays();}};
+$('export').onclick=async()=>{
+  controls(true);$('export-label').textContent='正在生成…';status('正在本机重建脱敏 PDF…');
+  try{const response=await request('/api/clean',{document_id:current.document_sha256,regions,reviewed:$('reviewed').checked,ocr:$('ocr').checked});const url=URL.createObjectURL(await response.blob());const a=document.createElement('a');a.href=url;a.download='resume-anonymized.pdf';a.click();setTimeout(()=>URL.revokeObjectURL(url),60000);resultReady=true;await show(true);mobileView('preview', true);status('PDF 已生成。当前显示实际导出结果，请再次核查后分享。');}
+  catch(error){status(error.message);}finally{$('export-label').textContent='生成脱敏 PDF';controls(false);}
+};
+$('clear').onclick=async()=>{
+  if(busy)return;controls(true);
+  try{await request('/api/clear',{});current=null;regions=[];dismissed.clear();resultReady=false;showingResult=false;releaseImages();$('file').value='';$('filename').textContent='';$('terms').value='';$('warnings').textContent='';$('counts').replaceChildren();$('reviewed').checked=false;empty();mobileView('editor');status('当前文档已清空，可以开始处理下一份简历。');}
+  catch(error){status(error.message);}finally{controls(false);}
+};
+empty();controls(false);
 if(!token)status('请通过终端输出的完整链接打开，以启用本地会话。');
-</script></body></html>
+</script>
+</body>
+</html>
