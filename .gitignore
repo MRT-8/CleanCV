@@ -17,3 +17,12 @@ uploads/
 *.report.json
 .env
 .env.*
+
+# Only the explicitly reviewed, synthetic demonstration media may be published.
+*.gif
+*.mp4
+*.webm
+.demo-tools/
+!docs/media/cleancv-demo.gif
+!docs/media/cleancv-demo.mp4
+!docs/media/cleancv-poster.png

@@ -27,13 +27,24 @@ def test_local_web_api_auth_review_and_clear():
         status,body,_=call('/api/open',sample());assert status==200
         a=json.loads(body)
         assert call('/api/page/1.png?id='+a['document_sha256'])[0]==200
+        assert call('/api/result/1.png?id='+a['document_sha256'])[0]==400
         payload={'document_id':a['document_sha256'],'regions':a['regions'],'reviewed':False}
         assert call('/api/clean',payload)[0]==400
         payload['reviewed']=True
         status,body,headers=call('/api/clean',payload)
         assert status==200 and body.startswith(b'%PDF')
         assert headers['Cache-Control']=='no-store'
+        status,preview,_=call('/api/result/1.png?id='+a['document_sha256'])
+        assert status==200 and preview.startswith(b'\x89PNG')
+        assert call('/api/result/1.png?id='+a['document_sha256'],authorized=False)[0]==403
         assert call('/api/clear',{})[0]==200
         assert call('/api/page/1.png?id='+a['document_sha256'])[0]==400
+        status,body,_=call('/api/demo',{})
+        assert status==200
+        demo=json.loads(body)
+        assert {'name','email','phone','politics','photo'} <= {r['kind'] for r in demo['regions']}
+        assert call('/api/page/1.png?id='+demo['document_sha256'])[0]==200
+        assert call('/api/result/1.png?id='+demo['document_sha256'])[0]==400
+        assert call('/api/result/1.png?id='+a['document_sha256'])[0]==400
     finally:
         server.shutdown();server.server_close();thread.join(timeout=5)

@@ -7,11 +7,12 @@ import json
 import secrets
 import webbrowser
 from .core import MAX_BYTES, analyze, clean_pdf, render_preview, Region, CleanCVError
+from .demo import create_demo_pdf
 
 
 def create_server(port=8765):
     token = secrets.token_urlsafe(32)
-    state = {"data": None, "id": None}
+    state = {"data": None, "id": None, "result": None}
     html = (Path(__file__).parent / "static" / "index.html").read_bytes()
 
     class Handler(BaseHTTPRequestHandler):
@@ -59,10 +60,15 @@ def create_server(port=8765):
             if not self.authorized():
                 return
             try:
-                if parsed.path.startswith("/api/page/") and parsed.path.endswith(".png"):
+                if parsed.path.startswith(("/api/page/", "/api/result/")) and parsed.path.endswith(".png"):
                     number = int(parsed.path.rsplit("/", 1)[1][:-4])
                     identity = parse_qs(parsed.query).get("id", [None])[0]
-                    return self.send(200, render_preview(self.require_document(identity), number), "image/png")
+                    data = self.require_document(identity)
+                    if parsed.path.startswith("/api/result/"):
+                        if state["result"] is None:
+                            raise CleanCVError("尚未生成当前文档的脱敏结果。")
+                        data = state["result"]
+                    return self.send(200, render_preview(data, number), "image/png")
                 self.send(404, {"error": "不存在的路径。"})
             except (ValueError, KeyError) as exc:
                 self.send(400, {"error": str(exc) if isinstance(exc, CleanCVError) else "请求格式错误。"})
@@ -77,13 +83,18 @@ def create_server(port=8765):
                 body = self.rfile.read(size)
                 if self.path == "/api/open":
                     result = analyze(body)
-                    state.update(data=body, id=result.document_sha256)
+                    state.update(data=body, id=result.document_sha256, result=None)
                     return self.send(200, result.to_dict())
                 if len(body) > 1024 * 1024:
                     raise CleanCVError("区域或额外词数据过大。")
                 value = json.loads(body)
+                if self.path == "/api/demo":
+                    data = create_demo_pdf()
+                    result = analyze(data)
+                    state.update(data=data, id=result.document_sha256, result=None)
+                    return self.send(200, result.to_dict())
                 if self.path == "/api/clear":
-                    state.update(data=None, id=None)
+                    state.update(data=None, id=None, result=None)
                     return self.send(200, {"ok": True})
                 data = self.require_document(value.get("document_id"))
                 if self.path == "/api/detect":
@@ -101,6 +112,7 @@ def create_server(port=8765):
                     if any(not any(r.page == p and r.kind == "manual" for r in regions) for p in scan_pages):
                         raise CleanCVError("扫描页需要手动框选；自动检测不能识别扫描图像里的姓名和照片。")
                     result = clean_pdf(data, regions, dpi=180, ocr=value.get("ocr") is True)
+                    state["result"] = result
                     return self.send(200, result, "application/pdf")
                 self.send(404, {"error": "不存在的路径。"})
             except (CleanCVError, ValueError, TypeError, KeyError) as exc:
