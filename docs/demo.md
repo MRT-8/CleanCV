@@ -11,7 +11,7 @@ README 中的 GIF 和 MP4 来自真实运行的 CleanCV 本地网页，包含实
 - 浏览器使用新的临时 context，不加载个人浏览器 profile、Cookie 或已登录账号。
 - 录制范围为网页 viewport，不包含地址栏或会话令牌；标题栏仅用于解释操作步骤。
 - MP4/GIF 编码时清除输入媒体元数据。录制中间文件、导出 PDF 和审查帧都位于被忽略的 `private/demo/`。
-- 只有明确命名的三个媒体文件获得 `.gitignore` 放行；发布前复查源码、关键帧、媒体元数据和最终 Git 提交。
+- 只有明确命名的四个媒体文件获得 `.gitignore` 放行；发布前复查源码、关键帧、媒体元数据和最终 Git 提交。
 
 ## 录制流程
 
@@ -46,13 +46,14 @@ python scripts/encode-demo.py
 - `PYTHON`：启动本地服务的 Python 可执行文件。
 - `FFMPEG_BINARY`：编码脚本使用的 FFmpeg 路径。
 
-录制脚本自动启动并停止自己的本地服务。运行 `node scripts/record-demo.cjs --inspect` 可检查 1440、1024、801、800 和 390 px 宽度的布局，验证手机端导出、视图切换、清空、键盘标签操作、拖放与文件选择导入及无外部请求，并将截图与检查结果保存在 `private/demo/`，不录制视频。
+录制脚本自动启动并停止自己的本地服务。运行 `node scripts/record-demo.cjs --inspect` 可检查 1440、1024、801、800 和 390 px 宽度的布局，验证首页与全屏工作区、手机端导出与再次下载、帮助、清空、缩放与放大后的框选坐标、候选定位、多页跳转、键盘标签操作、文件导入及无外部请求，并将截图与检查结果保存在 `private/demo/`，不录制视频。
 
 ## 文件
 
 - `media/cleancv-demo.gif`：README 内联播放。
 - `media/cleancv-demo.mp4`：高清可播放视频。
-- `media/cleancv-poster.png`：静态界面。
+- `media/cleancv-home.png`：未载入任何文档的导入首页。
+- `media/cleancv-poster.png`：虚构简历的全屏核查工作区。
 - `media/cleancv-mark.svg`：项目自己的图标。
 
 README 的“简介—入口—界面展示—快速开始”组织方式参考了用户指定的 t3code 项目；没有复用其代码、Logo 或品牌素材。

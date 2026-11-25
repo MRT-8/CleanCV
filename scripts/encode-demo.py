@@ -30,6 +30,6 @@ subprocess.run(base+['-i',str(MEDIA/'cleancv-demo.mp4'),'-filter_complex',
 # Review frames stay private and are never published.
 audit=ROOT/'private/demo/audit';audit.mkdir(exist_ok=True)
 subprocess.run(base+['-i',str(MEDIA/'cleancv-demo.mp4'),'-vf','fps=1/5,scale=720:-2',str(audit/'frame-%02d.png')],check=True)
-for name in ['cleancv-demo.mp4','cleancv-demo.gif','cleancv-poster.png']:
+for name in ['cleancv-demo.mp4','cleancv-demo.gif','cleancv-home.png','cleancv-poster.png']:
     p=MEDIA/name
     print(f'{name}: {p.stat().st_size/1024/1024:.2f} MiB')
